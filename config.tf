@@ -37,7 +37,7 @@ data "template_file" "cloud_config" {
     startup_script       = base64encode(var.startup_script)
     role                 = count.index == 0 ? "main" : "primary"
     distro               = var.distribution
-    rptfeconf = base64encode(templatefile("${path.module}/templates/replicated/replicated-ptfe-bad-demo.conf.tmpl",
+    rptfeconf = base64encode(templatefile("${path.module}/templates/replicated/replicated-ptfe.conf.tmpl",
       {
         hostname               = module.lb.endpoint,
         install_type           = local.install_type,
